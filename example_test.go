@@ -3,7 +3,7 @@ package clipboard_test
 import (
 	"fmt"
 
-	"github.com/antonmedv/clipboard"
+	"github.com/zxyqq/clipboard"
 )
 
 func Example() {

@@ -3,7 +3,7 @@ package clipboard_test
 import (
 	"testing"
 
-	. "github.com/antonmedv/clipboard"
+	. "github.com/zxyqq/clipboard"
 )
 
 func TestCopyAndPaste(t *testing.T) {
