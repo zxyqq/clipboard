@@ -70,7 +70,7 @@ func findClipboardUtility() commandInfo {
 		c.copyCmdArgs = win32yankExeCopyArgs
 		c.trimDOS = true
 
-		if _, err := exec.LookPath(clipExeCopyArgs); err == nil {
+		if _, err := exec.LookPath(win32yankExe); err == nil {
 			return c
 		}
 	}
