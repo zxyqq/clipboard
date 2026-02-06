@@ -14,6 +14,7 @@ const (
 	xclip              = "xclip"
 	powershellExe      = "powershell.exe"
 	clipExe            = "clip.exe"
+	win32yankExe       = "win32yank.exe"
 	wlcopy             = "wl-copy"
 	wlpaste            = "wl-paste"
 	termuxClipboardGet = "termux-clipboard-get"
@@ -29,6 +30,8 @@ var (
 
 	powershellExePasteArgs = []string{powershellExe, "Get-Clipboard"}
 	clipExeCopyArgs        = []string{clipExe}
+	win32yankExeCopyArgs   = []string{win32yankExe, "-i"}
+	win32yankExePasteArgs  = []string{win32yankExe, "-o"}
 
 	wlpasteArgs = []string{wlpaste, "--no-newline"}
 	wlcopyArgs  = []string{wlcopy}
@@ -63,14 +66,12 @@ func findClipboardUtility() commandInfo {
 	}
 
 	if os.Getenv("WSL_DISTRO_NAME") != "" {
-		c.pasteCmdArgs = powershellExePasteArgs
-		c.copyCmdArgs = clipExeCopyArgs
+		c.pasteCmdArgs = win32yankExePasteArgs
+		c.copyCmdArgs = win32yankExeCopyArgs
 		c.trimDOS = true
 
-		if _, err := exec.LookPath(clipExe); err == nil {
-			if _, err := exec.LookPath(powershellExe); err == nil {
-				return c
-			}
+		if _, err := exec.LookPath(clipExeCopyArgs); err == nil {
+			return c
 		}
 	}
 
