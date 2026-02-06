@@ -1,11 +1,11 @@
 # Clipboard for Go
 
-[![GoDoc](https://godoc.org/github.com/antonmedv/clipboard?status.svg)](http://godoc.org/github.com/antonmedv/clipboard)
+lipboard/zxyqq/clipboard/g
 
 Cross-platform clipboard package that works on Windows, WSL, macOS and Linux.
 
 ```bash
-go get github.com/antonmedv/clipboard
+lipboard/zxyqq/clipboard/g
 ```
 
 ## Usage
